@@ -37,6 +37,7 @@ const Onboarding1 = ({ title, subtitle, image }: OnboardingProps) => {
           style={{
             textAlign: "center",
             margin: 10,
+            color:"black",
             fontWeight: "bold",
           }}
         >
@@ -46,6 +47,7 @@ const Onboarding1 = ({ title, subtitle, image }: OnboardingProps) => {
           style={{
             textAlign: "center",
             margin: 10,
+            color:"black",
           }}
         >
           {subtitle}
@@ -53,6 +55,7 @@ const Onboarding1 = ({ title, subtitle, image }: OnboardingProps) => {
         <Button
           onPress={() => router.replace("/login")}
           mode="contained"
+          textColor="white"
           buttonColor="black"
           style={{
             marginHorizontal: 50,
