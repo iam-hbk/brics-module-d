@@ -14,7 +14,8 @@ const Onboarding_ = () => {
       }}
     >
       <Onboarding
-        onSkip={() => router.replace("/login")}
+        onSkip={() => router.replace("/welcome")}
+        onDone={() => router.replace("/welcome")}
         ref={onboardingRef}
         bottomBarHighlight={false}
         pages={[

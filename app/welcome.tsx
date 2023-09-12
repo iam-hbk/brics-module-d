@@ -2,8 +2,9 @@ import { View, StyleSheet, Image } from "react-native";
 import { Button, Text } from "react-native-paper";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { router } from "expo-router";
 
-const Login = () => {
+const Welcome = () => {
   return (
     <SafeAreaView
       style={{
@@ -118,6 +119,7 @@ const Login = () => {
             }}
           >
             <Button
+              onPress={()=>router.replace("/signin")}
               style={styles.buttons}
               buttonColor="#FEBD2F"
               textColor="black"
@@ -142,4 +144,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default Welcome;

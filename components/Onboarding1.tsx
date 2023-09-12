@@ -53,7 +53,7 @@ const Onboarding1 = ({ title, subtitle, image }: OnboardingProps) => {
           {subtitle}
         </Text>
         <Button
-          onPress={() => router.replace("/login")}
+          onPress={() => router.replace("/welcome")}
           mode="contained"
           textColor="white"
           buttonColor="black"
