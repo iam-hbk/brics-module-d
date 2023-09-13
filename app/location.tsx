@@ -37,7 +37,7 @@ const Location = () => {
     }
     await AsyncStorage.setItem("location-string", locationString);
     setLoading(false);
-    router.replace("/travel");
+    // router.replace("/travel");
   };
 
   return (

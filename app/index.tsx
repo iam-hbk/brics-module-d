@@ -1,85 +1,236 @@
-import { View, Image } from "react-native";
-import React, { useRef } from "react";
-import Onboarding from "react-native-onboarding-swiper";
-import Onboarding1 from "../components/Onboarding1";
-import { router } from "expo-router";
-const Onboarding_ = () => {
-  const onboardingRef = useRef(null);
+import { View, Text, ScrollView, Image } from "react-native";
+import React from "react";
+
+const Travel = () => {
+  const images = [
+    {
+      title: "Foods",
+      image: (
+        <Image
+          resizeMode="cover"
+          style={{
+            margin: 15,
+            width: 50,
+            height: 50,
+            borderWidth: 2,
+            borderColor: "#FEBD2F",
+            borderRadius: 100,
+          }}
+          source={require("@/assets/images/food.png")}
+        />
+      ),
+    },
+    {
+      title: "Groceries",
+      image: (
+        <Image
+          resizeMode="cover"
+          style={{
+            margin: 15,
+            width: 50,
+            height: 50,
+            borderWidth: 2,
+            borderColor: "#FEBD2F",
+
+            borderRadius: 100,
+          }}
+          source={require("@/assets/images/groceries.png")}
+        />
+      ),
+    },
+    {
+      title: "Hotels",
+      image: (
+        <Image
+          resizeMode="cover"
+          style={{
+            margin: 15,
+            width: 50,
+            height: 50,
+            borderWidth: 2,
+            borderColor: "#FEBD2F",
+
+            borderRadius: 100,
+          }}
+          source={require("@/assets/images/hotel.png")}
+        />
+      ),
+    },
+    {
+      title: "Events",
+      image: (
+        <Image
+          resizeMode="cover"
+          style={{
+            margin: 15,
+            width: 50,
+            height: 50,
+            borderWidth: 2,
+            borderColor: "#FEBD2F",
+
+            borderRadius: 100,
+          }}
+          source={require("@/assets/images/events.png")}
+        />
+      ),
+    },
+  ];
   return (
     <View
       style={{
         flex: 1,
-        paddingTop: 80,
-        backgroundColor: "white",
+        flexDirection: "row",
       }}
     >
-      <Onboarding
-        DotComponent={({ selected }: any) => (
-          <View
+      <View
+        style={{
+          backgroundColor: "white",
+          width: "20%",
+          borderWidth: 1,
+          justifyContent: "flex-start",
+          gap: 50,
+          alignItems: "center",
+          height: "100%",
+        }}
+      >
+        {images.map((image) => {
+          return (
+            <View
+              key={image.title}
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              {image.image}
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  fontSize: 18,
+                  color: "black",
+                }}
+              >
+                {image.title}
+              </Text>
+            </View>
+          );
+        })}
+      </View>
+      <ScrollView
+        style={{
+          backgroundColor: "white",
+          borderWidth: 1,
+          padding: 20,
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            width: "100%",
+            justifyContent: "space-around",
+          }}
+        >
+          <Image
+            resizeMode="cover"
             style={{
-              width: 6,
-              height: 6,
-              borderRadius: 3,
-              marginHorizontal: 3,
-              backgroundColor: selected ? "#FEBD2F" : "#C4C4C4",
+              margin: 15,
+              width: 50,
+              height: 50,
+              borderWidth: 2,
+              borderColor: "#FEBD2F",
+              borderRadius: 100,
             }}
+            source={require("@/assets/images/Ellipse1.png")}
           />
-        )}
-        onSkip={() => router.replace("/welcome")}
-        onDone={() => router.replace("/welcome")}
-        ref={onboardingRef}
-        bottomBarHighlight={false}
-        pages={[
-          {
-            title: "",
-            subtitle: "",
-            backgroundColor: "#fff",
-            image: (
-              <Onboarding1
-                isLast={false}
-                title="Discover Amazing Places"
-                subtitle="Plan Your Trip, choose your destination. Pick the best local guides for
-            your holiday"
-                image={
-                  <Image source={require("@/assets/images/onboarding1.png")} />
-                }
-              />
-            ),
-          },
-          {
-            title: "",
-            subtitle: "",
-            backgroundColor: "#fff",
-            image: (
-              <Onboarding1
-                isLast={false}
-                title="Book a Local"
-                subtitle="You can book private city tours with locals on-the-go and experience a new place like never before"
-                image={
-                  <Image source={require("@/assets/images/onboarding2.png")} />
-                }
-              />
-            ),
-          },
-          {
-            title: "",
-            subtitle: "",
-            backgroundColor: "#fff",
-            image: (
-              <Onboarding1
-                isLast
-                title="Share Your Adventures"
-                subtitle="Enjoy your holiday ! Don't forget to take a phot and share it with the world"
-                image={
-                  <Image source={require("@/assets/images/onboarding3.png")} />
-                }
-              />
-            ),
-          },
-        ]}
-      />
+          <Image
+            resizeMode="cover"
+            style={{
+              margin: 15,
+              width: 50,
+              height: 50,
+              borderWidth: 2,
+              borderColor: "#FEBD2F",
+
+              borderRadius: 100,
+            }}
+            source={require("@/assets/images/Ellipse2.png")}
+          />
+          <Image
+            resizeMode="cover"
+            style={{
+              margin: 15,
+              width: 50,
+              height: 50,
+              borderWidth: 2,
+              borderColor: "#FEBD2F",
+
+              borderRadius: 100,
+            }}
+            source={require("@/assets/images/Ellipse3.png")}
+          />
+          <Image
+            resizeMode="cover"
+            style={{
+              margin: 15,
+              width: 50,
+              height: 50,
+              borderWidth: 2,
+              borderColor: "#FEBD2F",
+
+              borderRadius: 100,
+            }}
+            source={require("@/assets/images/Ellipse4.png")}
+          />
+          <Image
+            resizeMode="cover"
+            style={{
+              margin: 15,
+              width: 50,
+              height: 50,
+              borderWidth: 2,
+              borderColor: "#FEBD2F",
+
+              borderRadius: 100,
+            }}
+            source={require("@/assets/images/Ellipse5.png")}
+          />
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ fontWeight: "bold" }}>Popular Destinations</Text>
+          <Text style={{ fontWeight: "bold", color: "#FEBD2F" }}>
+            `${"Show All >"}`{" "}
+          </Text>
+        </View>
+        <View>
+          <ScrollView horizontal>
+            {[1, 2, 3, 4].map((item) => {
+              return (
+                <Image
+                  resizeMode="cover"
+                  style={{
+                    margin: 15,
+                    // width: 50,
+                    // height: 50,
+                    borderWidth: 2,
+                    borderRadius: 13,
+
+                  }}
+                  source={require("@/assets/images/destination.png")}
+                />
+              );
+            })}
+          </ScrollView>
+        </View>
+      </ScrollView>
     </View>
   );
 };
 
-export default Onboarding_;
+export default Travel;

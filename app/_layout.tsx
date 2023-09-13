@@ -64,8 +64,8 @@ function RootLayoutNav() {
   return (
     // <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
     <PaperProvider theme={theme}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack initialRouteName="index">
+        {/* <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="signin" options={{ headerShown: false }} />
         <Stack.Screen name="signup" options={{ headerShown: false }} />
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
@@ -76,9 +76,9 @@ function RootLayoutNav() {
         <Stack.Screen
           name="forgot_password"
           options={{ headerShown: true, title: "Forgot Password" }}
-        />
+        /> */}
         <Stack.Screen
-          name="travel"
+          name="index"
           options={{
             headerShown: true,
             header: (props) => <TravelHeader headerProps={props} />,
