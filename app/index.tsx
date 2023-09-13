@@ -1,7 +1,9 @@
 import { View, Text, ScrollView, Image } from "react-native";
 import React from "react";
+import { Dimensions } from "react-native";
 
 const Travel = () => {
+  const { width, height } = Dimensions.get("window");
   const images = [
     {
       title: "Foods",
@@ -212,18 +214,54 @@ const Travel = () => {
           <ScrollView horizontal>
             {[1, 2, 3, 4].map((item) => {
               return (
-                <Image
-                  resizeMode="cover"
+                <View
+                  key={item}
                   style={{
-                    margin: 15,
-                    // width: 50,
-                    // height: 50,
-                    borderWidth: 2,
-                    borderRadius: 13,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    marginTop: 15,
+                    marginRight: 25,
+                    // width: width * 0.25,
 
                   }}
-                  source={require("@/assets/images/destination.png")}
-                />
+                >
+                  <Image
+                    resizeMode="cover"
+                    style={{
+                      // width: 50,
+                      // height: 50,
+                      borderWidth: 2,
+                      borderRadius: 13,
+                    }}
+                    source={require("@/assets/images/destination.png")}
+                  />
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: 36,
+                    }}
+                  >
+                    Tranquil Books & Coffee
+                  </Text>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Text>2.5km</Text>
+                    <View
+                      style={{
+                        padding: 5,
+                        backgroundColor: "green",
+                        borderRadius: 5,
+                      }}
+                    >
+                      <Text style={{ color: "white" }}>4.5</Text>
+                    </View>
+                  </View>
+                </View>
               );
             })}
           </ScrollView>
