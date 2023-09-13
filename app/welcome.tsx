@@ -119,7 +119,7 @@ const Welcome = () => {
             }}
           >
             <Button
-              onPress={()=>router.replace("/signin")}
+              onPress={() => router.replace("/signin")}
               style={styles.buttons}
               buttonColor="#FEBD2F"
               textColor="black"
@@ -127,7 +127,12 @@ const Welcome = () => {
             >
               Sign In
             </Button>
-            <Button style={styles.buttons} buttonColor="black" mode="contained">
+            <Button
+              onPress={() => router.replace("/signup")}
+              style={styles.buttons}
+              buttonColor="black"
+              mode="contained"
+            >
               Sign Up
             </Button>
           </View>

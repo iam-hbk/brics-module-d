@@ -1,6 +1,13 @@
-import { View, StyleSheet, Image, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import {
   Button,
+  Checkbox,
   IconButton,
   Text,
   TextInput,
@@ -10,9 +17,12 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
 
-const SignUp = () => {
+const SignIn = () => {
   const [text, setText] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
+  const [name, setName] = React.useState<string>("");
+  const [phone, setPhone] = React.useState<string>("");
+  const [checked, setChecked] = React.useState<Boolean>(false);
   const theme = useTheme();
 
   return (
@@ -27,17 +37,17 @@ const SignUp = () => {
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-          height: "40%",
+          height: "20%",
         }}
       >
         <Image
           source={require("@/assets/images/icon.png")}
-          width={20}
-          height={20}
+          //   width={20}
+          //   height={20}
           style={{
-            width: "27%",
-            height: "27%",
-            borderRadius: 30,
+            width: "30%",
+            height: "75%",
+            borderRadius: 25,
           }}
           resizeMode="contain"
         />
@@ -83,9 +93,9 @@ const SignUp = () => {
               marginVertical: 7,
               borderRadius: 15,
             }}
-            label="Email"
-            value={text}
-            onChangeText={(text) => setText(text)}
+            label="Your name"
+            value={name}
+            onChangeText={(name) => setName(name)}
           />
           <TextInput
             style={{
@@ -95,27 +105,50 @@ const SignUp = () => {
             label="Password"
             value={password}
             secureTextEntry={true}
-            onChangeText={(text) => setPassword(text)}
+            onChangeText={(password) => setPassword(password)}
             right={<TextInput.Icon icon="eye" />}
           />
-
-          <Button
-            mode="text"
-            onPress={() => {
-              router.replace("/forgot_password");
+          <TextInput
+            style={{
+              marginVertical: 7,
+              borderRadius: 15,
             }}
-          >
-            Forgot Password?
-          </Button>
+            label="Email"
+            value={text}
+            onChangeText={(text) => setText(text)}
+          />
+          <TextInput
+            style={{
+              marginVertical: 7,
+              borderRadius: 15,
+            }}
+            label="Phone number"
+            value={phone}
+            onChangeText={(phone) => setPhone(phone)}
+          />
 
+          <Checkbox.Item
+            // mode={Platform.OS === "ios" ? "ios" : "android"}
+            mode="android"
+            labelStyle={{
+              textAlign: "left",
+            }}
+            labelVariant="labelMedium"
+            position="leading"
+            label="By creating an account, you agree to our Terms and Conditions"
+            status={checked ? "checked" : "unchecked"}
+            onPress={() => {
+              setChecked(!checked);
+            }}
+          />
           <Button
-            onPress={() => router.replace("/location")}
+            onPress={() => console.log("pressed")}
             style={styles.buttons}
             buttonColor="#FEBD2F"
             textColor="black"
             mode="contained"
           >
-            Sign In
+            Sign Up
           </Button>
           <View
             style={{
@@ -131,10 +164,10 @@ const SignUp = () => {
                 margin: 10,
               }}
             >
-              Don't have an account?
+              Already have an account?
             </Text>
-            <Button mode="text" onPress={() => router.replace("/signup")}>
-              Sign Up
+            <Button mode="text" onPress={() => router.replace("/signin")}>
+              Sign In
             </Button>
           </View>
 
@@ -142,9 +175,10 @@ const SignUp = () => {
             style={{
               textAlign: "center",
               color: "grey",
+              marginVertical: 10,
             }}
           >
-            Or
+            Or Continue with
           </Text>
           <View
             style={{
@@ -200,4 +234,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUp;
+export default SignIn;

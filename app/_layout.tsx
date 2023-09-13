@@ -64,7 +64,16 @@ function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="signin" options={{ headerShown: false }} />
+        <Stack.Screen name="signup" options={{ headerShown: false }} />
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="location"
+          options={{ headerShown: true, title: "Location" }}
+        />
+        <Stack.Screen
+          name="forgot_password"
+          options={{ headerShown: true, title: "Forgot Password" }}
+        />
       </Stack>
     </PaperProvider>
     // </ThemeProvider>
