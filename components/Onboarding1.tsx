@@ -7,9 +7,10 @@ interface OnboardingProps {
   title: string;
   subtitle: string;
   image: any;
+  isLast: boolean;
 }
 
-const Onboarding1 = ({ title, subtitle, image }: OnboardingProps) => {
+const Onboarding1 = ({ title, subtitle, image, isLast }: OnboardingProps) => {
   const { width, height } = useWindowDimensions();
 
   return (
@@ -37,7 +38,7 @@ const Onboarding1 = ({ title, subtitle, image }: OnboardingProps) => {
           style={{
             textAlign: "center",
             margin: 10,
-            color:"black",
+            color: "black",
             fontWeight: "bold",
           }}
         >
@@ -47,23 +48,25 @@ const Onboarding1 = ({ title, subtitle, image }: OnboardingProps) => {
           style={{
             textAlign: "center",
             margin: 10,
-            color:"black",
+            color: "black",
           }}
         >
           {subtitle}
         </Text>
-        <Button
-          onPress={() => router.replace("/welcome")}
-          mode="contained"
-          textColor="white"
-          buttonColor="black"
-          style={{
-            marginHorizontal: 50,
-            marginBottom: 20,
-          }}
-        >
-          Get Started
-        </Button>
+        {isLast && (
+          <Button
+            onPress={() => router.replace("/welcome")}
+            mode="contained"
+            textColor="white"
+            buttonColor="black"
+            style={{
+              marginHorizontal: 50,
+              marginBottom: 20,
+            }}
+          >
+            Get Started
+          </Button>
+        )}
       </View>
     </View>
   );

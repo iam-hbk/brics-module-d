@@ -14,6 +14,17 @@ const Onboarding_ = () => {
       }}
     >
       <Onboarding
+        DotComponent={({ selected }: any) => (
+          <View
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: 3,
+              marginHorizontal: 3,
+              backgroundColor: selected ? "#FEBD2F" : "#C4C4C4",
+            }}
+          />
+        )}
         onSkip={() => router.replace("/welcome")}
         onDone={() => router.replace("/welcome")}
         ref={onboardingRef}
@@ -25,6 +36,7 @@ const Onboarding_ = () => {
             backgroundColor: "#fff",
             image: (
               <Onboarding1
+                isLast={false}
                 title="Discover Amazing Places"
                 subtitle="Plan Your Trip, choose your destination. Pick the best local guides for
             your holiday"
@@ -40,6 +52,7 @@ const Onboarding_ = () => {
             backgroundColor: "#fff",
             image: (
               <Onboarding1
+                isLast={false}
                 title="Book a Local"
                 subtitle="You can book private city tours with locals on-the-go and experience a new place like never before"
                 image={
@@ -54,6 +67,7 @@ const Onboarding_ = () => {
             backgroundColor: "#fff",
             image: (
               <Onboarding1
+                isLast
                 title="Share Your Adventures"
                 subtitle="Enjoy your holiday ! Don't forget to take a phot and share it with the world"
                 image={
