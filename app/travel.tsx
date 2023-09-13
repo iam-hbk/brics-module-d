@@ -4,7 +4,7 @@ import React from "react";
 const Travel = () => {
   return (
     <View>
-      <Text>Travel</Text>
+      <Text>Veltra</Text>
     </View>
   );
 };

@@ -1,4 +1,5 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import firebase from "firebase/app";
 import {
   DarkTheme,
   DefaultTheme,
@@ -8,6 +9,7 @@ import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
+import "@/apis/firebaseConfig";
 import {
   PaperProvider,
   MD3LightTheme as Default_theme,
@@ -77,7 +79,10 @@ function RootLayoutNav() {
         />
         <Stack.Screen
           name="travel"
-          options={{ headerShown: true, header: (props) => <TravelHeader headerProps={props} /> }}
+          options={{
+            headerShown: true,
+            header: (props) => <TravelHeader headerProps={props} />,
+          }}
         />
       </Stack>
     </PaperProvider>

@@ -1,10 +1,32 @@
 import { Image, View } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { IconButton, Text, useTheme } from "react-native-paper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const TravelHeader = ({ props }: any) => {
   const theme = useTheme();
+  const [currentLocation, setCurrentLocation] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const getData = async () => {
+    setLoading(true);
+    try {
+      const value = await AsyncStorage.getItem("location-string");
+
+      if (value !== null) {
+        setCurrentLocation(value);
+      }
+    } catch (e) {
+      alert("An error occured while getting your location");
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <SafeAreaView
       style={{
@@ -20,12 +42,12 @@ const TravelHeader = ({ props }: any) => {
         }}
       >
         <Text
-          variant="titleLarge"
+          variant="titleMedium"
           style={{
             fontWeight: "bold",
           }}
         >
-          Johannesburg, South Africa
+          {!loading && currentLocation}
         </Text>
         <IconButton
           style={{
