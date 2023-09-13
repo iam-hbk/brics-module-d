@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, Text } from "react-native-paper";
 import { router } from "expo-router";
 
-const Location = () => {
+const Notifications = () => {
   const { width, height } = Dimensions.get("window");
   return (
     <SafeAreaView
@@ -31,7 +31,7 @@ const Location = () => {
           width: width * 0.7,
           height: width * 0.7,
         }}
-        source={require("@/assets/images/location.png")}
+        source={require("@/assets/images/notification.png")}
       />
       <Text
         variant="titleLarge"
@@ -40,7 +40,7 @@ const Location = () => {
           marginVertical: 50,
         }}
       >
-        Location Services
+        Notifications Services
       </Text>
       <Text
         variant="bodyMedium"
@@ -49,8 +49,8 @@ const Location = () => {
           marginHorizontal: 50,
         }}
       >
-        Get the best recommendations of things to do near you ! Oloha will need
-        to enable location services to this.
+        With push notification, we will inform you about your progress,
+        feedback, and other important messages
       </Text>
 
       <Button
@@ -59,12 +59,12 @@ const Location = () => {
         style={{
           marginVertical: 50,
         }}
-        onPress={() => router.replace("/notification")}
+        onPress={() => router.replace("/travel")}
       >
-        Turn On Location
+        Turn On Notifications
       </Button>
     </SafeAreaView>
   );
 };
 
-export default Location;
+export default Notifications;

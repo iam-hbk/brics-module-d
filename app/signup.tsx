@@ -142,7 +142,7 @@ const SignIn = () => {
             }}
           />
           <Button
-            onPress={() => console.log("pressed")}
+            onPress={() => router.replace("/location")}
             style={styles.buttons}
             buttonColor="#FEBD2F"
             textColor="black"

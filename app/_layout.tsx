@@ -17,6 +17,7 @@ export {
   ErrorBoundary,
 } from "expo-router";
 import CustomTheme from "@/constants/CustomTheme";
+import TravelHeader from "@/components/TravelHeader";
 
 const theme = {
   ...DefaultTheme,
@@ -73,6 +74,10 @@ function RootLayoutNav() {
         <Stack.Screen
           name="forgot_password"
           options={{ headerShown: true, title: "Forgot Password" }}
+        />
+        <Stack.Screen
+          name="travel"
+          options={{ headerShown: true, header: (props) => <TravelHeader headerProps={props} /> }}
         />
       </Stack>
     </PaperProvider>
